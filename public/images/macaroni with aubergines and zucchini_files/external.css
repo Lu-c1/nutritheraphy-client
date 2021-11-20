@@ -1,0 +1,170 @@
+/* external css */
+*{
+  box-sizing: border-box;
+}
+body{
+  /*background-color: #000000;*/
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  position: fixed;
+}
+#mask-gradient{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+#svg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  transform-origin: 50% 50%;
+}
+#castle__big {
+  visibility: hidden;
+}
+#castle__small {
+  transform-origin: 50% 50%;
+}
+#background-content{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+  clip-path: url(#castle);
+  /*-webkit-clip-path: url(#castle);*/
+}
+#background-color{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  z-index: 101;
+}
+.bottom-cta__item{
+  text-align: center;
+}
+#bottom-cta__item--left{
+  background-color: blue;
+}
+#bottom-cta__item--center{
+  background-color: blue;
+}
+#bottom-cta__item--right{
+  background-color: red;
+}
+.frame-item{
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  /*
+  padding-left: 10px;
+  padding-right: 10px;
+  opacity: 0;*/
+  color: #ffffff;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  
+}
+#hashtag-container{
+  position: absolute;
+  /*
+  width: 100%;
+  height: calc(100% - 46px);
+  */
+  z-index: 300;
+}
+#logo {
+  position: absolute;
+  text-align: center;
+  height: auto;
+  z-index: 200;
+}
+#particle-stage{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100vw;
+  height: 100vh;
+  z-index: 300;
+}
+#particle-emitter {
+  position: absolute;
+  top: -300px;
+  left: -300px;
+  z-index: 300;
+}
+h1, h2, h3 ,p, span{
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: relative;
+  backface-visibility: hidden;
+  filter: grayscale(0%);
+}
+ft-video, ft-video-host {
+  backface-visibility: visible !important;
+}
+#countdown{
+  margin: 0 auto;
+  backface-visibility: hidden;
+  filter: grayscale(0%);
+  position: relative;
+}
+
+#timer, #timerText, #days, #hours, #minutes{
+  backface-visibility: hidden;
+  filter: grayscale(0%);
+}
+/*default animations and styles*/
+
+.default{
+  transform: scale(2); 
+  opacity: 0;
+}
+
+.from-bg{
+  transform: scale(0); 
+  opacity: 0;
+}
+
+.from-top{
+  transform: translateY(-100vh);
+  opacity: 0;
+}
+
+.from-bottom{
+  transform: translateY(100vh);
+  opacity: 0;
+}
+
+.from-left{
+  transform: translateX(-100vw);
+  opacity: 0;
+}
+
+.from-right{
+  transform: translateX(100vw);
+  opacity: 0;
+}
+
+.asterisk{
+  vertical-align: text-top;
+}
+
+.side-by-side{
+  display: inline-block; 
+  line-height: 1;
+}
+
+.plus{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

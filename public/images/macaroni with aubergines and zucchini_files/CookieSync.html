@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- saved from url=(0490)https://csync.smartadserver.com/diff/rtb/csync/CookieSync.html?hasrtb=true&nwid=3005&dcid=4&iscname=false&cname=&gdpr=True&gdpr_consent=CPP-MSuPP-MSuEsABBESB1CoAP_AAH_AAAiQHQpD7T7FbSlCyP55fLsAMAhXRkCkAqQAAASABmABQAKQIAQCkkAQFASgBAACAAAgICZBAQIMCAgACUABQABAAAEEAAAABAAIIAAAgAEAAAAIAAACAIAAAAAIAAAAEAAAmwgAAIIACAAABAAAAAAAAAAAAAAAAgdCgPsLsVtKUJI_Gk8uwAgCFdGQIQCoAAAAIAGYAAAApAgBAKQQBAABKAAAAIAACAgJgEBAggACAABQAFAAEAAAAAAAAAAAAggAACAAQAAAAgAAAIAgAAAAAgAAAAAAACBCAAAggAIAAAAAAAAAAAAAAAAAAACAAA -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>CookieSync Page</title>
+</head>
+<body marginwidth="0" marginheight="0">
+    <script src="./CookieSync.min.js" type="text/javascript"></script>
+    <script src="./TemplatePool.min.js" type="text/javascript"></script>
+    <script src="./cmp.js" type="text/javascript"></script>
+    <script>
+	    const cmp2 = new SasIabApi({
+            name: 'CMP V2',
+            version: 2,
+            apiFunctionName: '__tcfapi',
+            getConsentFunction: 'addEventListener',
+            sasCookieName: 'sas_euconsent_v2',
+            sasAddtlCookieName: 'sas_addtl_euconsent_v2',
+            consentObjectConsentDataName: 'tcString',
+            consentObjectAdditionalConsentDataName: 'addtlConsent',
+            apiLocator: '__tcfapiLocator',
+            sentMessage: '__tcfapiCall',
+            postMessageReturnObjectName: '__tcfapiReturn'
+        });
+
+        cmp2.searchApi();
+    </script>
+    <script>
+        sasCookieSync.fireCSync(poolData);
+    </script>
+
+
+</body></html>

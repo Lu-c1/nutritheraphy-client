@@ -1,0 +1,6 @@
+(function(){
+    var p=window.document.currentScript;
+    var s=document.createElement('script');
+    s.src='https://cdn-statics.admanmedia.com/hybs.js';
+    s.async=true;s.setAttribute('data-slot-1', '%23div-adman-ad-2925');s.setAttribute('data-format', 'intext');s.setAttribute('data-product', 'Pi');s.setAttribute('data-banner_id', '6816');s.setAttribute('data-waterfall', 'true');s.setAttribute('data-placement_id', '2925');s.setAttribute('data-country', 'esp');s.setAttribute('data-mobile-slot-1', '%23div-adman-ad-2925');s.setAttribute('data-mobile-format', 'intext');s.setAttribute('data-mobile-height', '168');s.setAttribute('data-mobile-product', 'Pi');s.setAttribute('data-mobile-banner_id', '6816');s.setAttribute('data-mobile-waterfall', 'true');s.setAttribute('data-mobile-placement_id', '2925');s.setAttribute('data-mobile-country', 'esp');/**/
+    p.insertAdjacentElement('afterend', s);})();

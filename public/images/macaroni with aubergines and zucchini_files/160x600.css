@@ -1,0 +1,50 @@
+#logo {
+	left: 6px;
+	top: 6px;
+	width: 112px;
+}
+#frame-container{
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+}
+#background-video{
+  position: absolute;
+  top: 216px;
+}
+ft-video {
+  width: 300px;
+  height: 168px;
+}
+/* FONT STYLES */
+.t{
+    font-size: 1em;
+    font-weight: 200;
+}
+.m{
+    font-size: 1.1em;
+}
+.s {
+    font-size: 1em;
+   /*display: inline-block;*/
+}
+.l {
+    font-size: 1.3em;
+    /*display: inline-block;*/
+    /*margin-top: 4px;*/
+}
+.xl {
+    font-size: 1.5em;
+    /*display: inline-block;*/
+    /*margin-top: 4px;*/
+}
+.xxl {
+    font-size: 1.8em;
+    /*display: inline-block;*/
+    /*margin-top: 4px;*/
+}
+.xxxl {
+    font-size: 2.8em;
+    /*display: inline-block;*/
+    /*margin-top: 4px;*/
+}

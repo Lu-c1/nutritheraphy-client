@@ -1,0 +1,38 @@
+
+var ftGUID_5935925="50474D9B23DD7B";
+var ftConfID_5935925="26506727";
+var ftParams_5935925="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ft_section=_SP_MSG4_&ftOBA=1&ft_ifb=1&ft_domain=www.recetasgratis.net&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.recetasgratis.net%2F&ft_keyword=_SP_MSG4_&gdpr=1&gdpr_consent=CPP-MSuPP-MSuEsABBESB1CoAP_AAH_AAAiQHQpD7T7FbSlCyP55fLsAMAhXRkCkAqQAAASABmABQAKQIAQCkkAQFASgBAACAAAgICZBAQIMCAgACUABQABAAAEEAAAABAAIIAAAgAEAAAAIAAACAIAAAAAIAAAAEAAAmwgAAIIACAAABAAAAAAAAAAAAAAAAgdCgPsLsVtKUJI_Gk8uwAgCFdGQIQCoAAAAIAGYAAAApAgBAKQQBAABKAAAAIAACAgJgEBAggACAABQAFAAEAAAAAAAAAAAAggAACAAQAAAAgAAAIAgAAAAAgAAAAAAACBCAAAggAIAAAAAAAAAAAAAAAAAAACAAA&cachebuster=16176.425514947468";
+var ftKeyword_5935925="_sp_,_msg4_";
+var ftCustom_5935925="";
+var ftSection_5935925="_SP_MSG4_";
+var ftSegment_5935925="ag5l,w2b";
+var ftSegmentList_5935925=[{s:'ag5l'},{s:'w2b'}];
+var ftRuleMatch_5935925="00010000";
+var ftTimestamp_5935925="1637409150";
+var ftGeoC2_5935925="es";
+var ftGeoState_5935925="v";
+var ftGeoCity_5935925="valencia";
+var ftISP_5935925="telefonica de espana";
+var ftSpeed_5935925="broadband";
+var ftDMA_5935925="-1";
+var ftLong_5935925="-0.4";
+var ftLat_5935925="39.47";
+var ftPostal_5935925="46018";
+var ftTimeZone_5935925="100";
+var ftMobileCarrier_5935925="";
+var ftImp5935925 = {};
+ftImp5935925.privacy = "y";
+ftImp5935925.guidAge = "25";
+ftImp5935925.impID = "877D2A5A-FF80-0BD3-A48C-1C215EAEEF39";
+ftImp5935925.duid = "FT:50474D9B23DD7B";
+
+ftImp5935925.ft_tpplid = "";
+ftImp5935925.ft_c = {};
+ftImp5935925.gdpr = "1";
+ftImp5935925.gdpr_consent = "CPP-MSuPP-MSuEsABBESB1CoAP_AAH_AAAiQHQpD7T7FbSlCyP55fLsAMAhXRkCkAqQAAASABmABQAKQIAQCkkAQFASgBAACAAAgICZBAQIMCAgACUABQABAAAEEAAAABAAIIAAAgAEAAAAIAAACAIAAAAAIAAAAEAAAmwgAAIIACAAABAAAAAAAAAAAAAAAAgdCgPsLsVtKUJI_Gk8uwAgCFdGQIQCoAAAAIAGYAAAApAgBAKQQBAABKAAAAIAACAgJgEBAggACAABQAFAAEAAAAAAAAAAAAggAACAAQAAAAgAAAIAgAAAAAgAAAAAAACBCAAAggAIAAAAAAAAAAAAAAAAAAACAAA";
+ftImp5935925.gdpr_pd = "";
+ftImp5935925.oob_consent = "";
+ftImp5935925.gdprStoredConsent = "";
+ftImp5935925.us_privacy = "";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/593/5935925/3406139/js/j-5935925-3406139.js" id="ftscript_m5935925" name="ftscript_m5935925"></scr'+'ipt>');

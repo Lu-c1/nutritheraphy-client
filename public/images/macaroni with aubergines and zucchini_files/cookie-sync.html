@@ -1,0 +1,25 @@
+
+<!-- saved from url=(0051)https://mbid.marfeelrev.com/static/cookie-sync.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mbid cookie-sync</title>
+    <script type="text/javascript">"use strict";function _typeof(obj){if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function _typeof(obj){return typeof obj}}else{_typeof=function _typeof(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj}}return _typeof(obj)}
+    var ENDPOINT='https://mbid.marfeelrev.com/cookie_sync';function processUids(response){var result=JSON.parse(response);if(result.tempUIDs&&result.tempUIDs.length>0){result.tempUIDs.forEach(function(temp){console.log(temp)})}else{console.log('no cookies synced!')}}
+    function doBidderSync(type,url,bidder){if(!url){console.log('No sync url for bidder "',bidder,'":',url)}else if(type==='image'||type==='redirect'){console.log('Invoking image pixel user sync for bidder: "',bidder,'"');triggerPixel(url)}else if(type=='iframe'){console.log('Invoking iframe user sync for bidder "',bidder,'" is not yet implemented.');insertUserSyncIframe(url,bidder)}else{console.log('User sync type "',type,'" not supported for bidder: "',bidder,'"')}}
+    function insertUserSyncIframe(url,bidder){var iframeHtml="<iframe sandbox=\"allow-scripts allow-same-origin\" id=\"mrf-mbid-usersync-".concat(bidder,"\"\n\t\t\tframeborder=\"0\"\n\t\t\tallowtransparency=\"true\"\n\t\t\tmarginheight=\"0\" marginwidth=\"0\"\n\t\t\twidth=\"0\" hspace=\"0\" vspace=\"0\" height=\"0\"\n\t\t\tstyle=\"height:0px;width:0px;display:none;\"\n\t\t\tscrolling=\"no\"\n\t\t\tsrc=\"").concat(url,"\">\n\t\t  </iframe>");var div=document.createElement('div');div.innerHTML=iframeHtml;var iframe=div.firstChild;document.body.appendChild(iframe)}
+    function triggerPixel(url){new Image().src=url}
+    function process(response){var result=JSON.parse(response);if(result.status==='ok'||result.status==='no_cookie'){if(result.bidder_status){result.bidder_status.forEach(function(bidder){if(bidder.no_cookie){doBidderSync(bidder.usersync.type,bidder.usersync.url,bidder.bidder)}})}}}
+    function ajax(url,callback,data){var options=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};try{var timeout=3000;var x;var method=options.method||(data?'POST':'GET');var callbacks=_typeof(callback)==='object'?callback:{success:function success(){console.log('xhr success')},error:function error(e){console.log('xhr error',null,e)}};if(typeof callback==='function'){callbacks.success=callback}
+        x=new window.XMLHttpRequest();x.onreadystatechange=function(){if(x.readyState===4){var status=x.status;if(status>=200&&status<300||status===304){callbacks.success(x.responseText,x)}else{callbacks.error(x.statusText,x)}}};x.ontimeout=function(){console.log('xhr timeout after ',x.timeout,'ms')};if(method==='GET'&&data){var urlInfo=parseURL(url,options);Object.assign(urlInfo.search,data);url=formatURL(urlInfo)}
+        x.open(method,url,!0);x.timeout=timeout;if(options.withCredentials){x.withCredentials=!0}
+        if(options.preflight){x.setRequestHeader('X-Requested-With','XMLHttpRequest')}
+        x.setRequestHeader('Content-Type',options.contentType||'text/plain');if(method==='POST'&&data){x.send(data)}else{x.send(null)}}catch(error){console.log('xhr construction',error)}}
+    var data='{"gdpr":1,"gdpr_consent":"CPM7aFrPM7aFrC1ACBENBrCsAP_AAH_AAAAAINNf_X__bX9j-_59f_t0eY1P9_r_v-Qzjhfdt-8F2L_W_L0X42E7NF36pq4KuR4Eu3LBIQNlHMHUTUmwaokVrzPsak2Mr6NKJ7LEmnMZO2dYGHtPn91TuZKY7_78__fz3z-v_t___9f37-3_3__5_X---_e_V399zLv9____39nN___9vwQaAJMNS8gC7EscGTaNKoUQIwrCQ6AUAFFAMLRNYAMDgp2VgEeoIWACE1ARgRAgxBRgwCAAQCAJCIgJACwQCIAiAQAAgBUgIQAETAILACwMAgAFANCxAigCECQgyOCo5TAgIkWignsrAEou9jTCEMssAKBR_RUYCJQggWBkJCwcxwBICXCgAAAA.YAAAAAAAAAAA","us_privacy":"1YNN"}}';ajax(ENDPOINT,process,data)</script>
+</head>
+<body>
+
+
+<iframe sandbox="allow-scripts allow-same-origin" id="mrf-mbid-usersync-eplanning" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./saved_resource(23).html">
+		  </iframe></body></html>
