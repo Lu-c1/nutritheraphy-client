@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import authService from "../services/auth-service";
-import { Link } from "react-router-dom";
+import logo from "../assets/LogoNutritherapy.png";
+import userImage from "../assets/user.png";
 
 const Navbar = (props) => {
   const { isLoggedIn, user, setUser } = props;
@@ -16,32 +17,20 @@ const Navbar = (props) => {
     <>
       <nav
         className="navbar navbar-expand-lg navbar-light"
-        style={{ backgroundColor: "#D7BDE2", height: "130px" }}
+        style={{ backgroundColor: "#D7BDE2", height: "170px" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img
-              className="logo"
-              src="../images/LogoNutritherapy.png"
-              style={{
-                height: "9vmin",
-                marginTop: "30px",
-                marginLeft: "-70px",
-                width: "500px",
-              }}
-            />
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <img
+            className="logo"
+            src={logo}
+            style={{
+              height: "11vmin",
+              marginTop: "20px",
+              marginLeft: "40px",
+              width: "500px",
+            }}
+          />
+
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             {isLoggedIn && user && (
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -90,18 +79,35 @@ const Navbar = (props) => {
           </div>
           <div>
             {isLoggedIn && user && (
-              <div class="row">
-                <div class="col-md-12">
-                  <img
-                    src="../images/user.png"
-                    alt="userimg"
+              <div className="row">
+                <NavLink to={`/profile/${user._id}`}>
+                  <button
                     style={{
-                      marginLeft: "-100px",
-                      width: "100px",
-                      height: "7vmin",
+                      marginLeft: "-600px",
+                      marginRight: "-30px",
+                      marginTop: "100px",
                     }}
-                  />
+                  >
+                    <img
+                      src={userImage}
+                      alt="userImg"
+                      style={{
+                        backgroundImage: "../assets/user.png",
+                        //margin: "cover",
+                        width: "70px",
+                        height: "70px",
+                      }}
+                    />
+                  </button>
+                </NavLink>
 
+                <div
+                  className="col-md-6"
+                  style={{
+                    marginTop: "-80px",
+                    marginLeft: "-50px",
+                  }}
+                >
                   <h3>Hi,{user.username}</h3>
 
                   <div>
@@ -121,23 +127,32 @@ const Navbar = (props) => {
                         Logout
                       </button>
                     </NavLink>
-
-                    <NavLink to="/private">
-                      <button
-                        className="btn btn-secondary:hover"
-                        style={{
-                          padding: "10px",
-                          margin: "10px",
-                          width: "100px",
-                          backgroundColor: "#4E6380",
-                          color: "white",
-                          fontWeight: "600",
-                        }}
-                      >
-                        Private
-                      </button>
-                    </NavLink>
                   </div>
+                </div>
+                <div
+                  className="col-md-6"
+                  style={{
+                    marginTop: "20px",
+                    marginRight: "100px",
+                    width: "100px",
+                    height: "7vmin",
+                  }}
+                >
+                  <NavLink to="/profile/list">
+                    <button
+                      className="btn btn-secondary:hover"
+                      style={{
+                        padding: "10px",
+                        marginTop: "-80px",
+                        width: "150px",
+                        backgroundColor: "#4E6380",
+                        color: "white",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Community
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             )}
@@ -146,7 +161,7 @@ const Navbar = (props) => {
                 <div>
                   <NavLink to="/signup">
                     <button
-                      class="btn btn-secondary:hover"
+                      className="btn btn-secondary:hover"
                       style={{
                         padding: "10px",
                         margin: "10px",
@@ -161,7 +176,7 @@ const Navbar = (props) => {
                   </NavLink>
                   <NavLink to="/login">
                     <button
-                      class="btn btn-secondary:hover"
+                      className="btn btn-secondary:hover"
                       style={{
                         padding: "10px",
                         margin: "10px",

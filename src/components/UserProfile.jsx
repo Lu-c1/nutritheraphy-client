@@ -22,79 +22,74 @@ class UserProfile extends Component {
   handleDelete = () => {
     axios
       .delete(
-        `${process.env.REACT_APP_SERVER_API}/profile/${this.props.match.params.id}`
+        `${process.env.REACT_APP_SERVER_URL}/profile/${this.props.match.params.id}`,
+        { withCredentials: true }
       )
-      .then(() => this.props.history.push("/"))
+      .then(() => {
+        // invoke the method that removes the user from App.js state
+        this.props.history.push("/login");
+      })
       .catch(() => this.props.history.push("/500"));
   };
   render() {
     const { yourProfile, isLoading } = this.state;
     return (
-      <div
-        className="container emp-profile"
-        style={{
-          marginTop: "100px",
-          display: "flex",
-          contentAlign: "center",
-        }}
-      >
-        {isLoading && <BounceLoader size={90} />}
+      <div className="container-fluid m-5 w-100">
+        {isLoading && <BounceLoader color={"#D7BDE2"} size={90} />}
         {!isLoading && (
           <div>
             <h2> Your Profile </h2>
-
-            <form
-              method="post"
+            <div
+              className="card-deck d-sm-flex flex-row justify-content-center d-block m-auto mt-5"
               style={{
-                height: "900px",
-                width: "900px",
-                fontSize: "20px",
-                marginTop: "200px",
+                height: "45rem",
+                width: "90rem",
+                backgroundColor: "#D9D5DB",
               }}
             >
-              <div className="row">
-                <div className="col-md-16">
-                  <div className="profile-img">
-                    <img src={yourProfile.image} alt="" />
+              <img
+                style={{ height: "30rem", width: "40rem" }}
+                className="card-img-top w-40 mr-md-5"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYxNbV-Jx4qPKQR3db2ue8zoHj5M94dEtMCg&usqp=CAU"
+              />
+              {/*  {yourProfile.image && (
+                          <img src={yourProfile.image} alt="imageUser" />
+                        )} */}
 
-                    <div
-                      className="file btn btn-lg btn-primary"
-                      style={{
-                        padding: "10px",
-                        marginBottom: "40px",
-                        width: "100px",
-                        backgroundColor: "#4E6380",
-                        color: "white",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Add Photo
-                      {/* <input type="file" name="file" /> */}
-                    </div>
-                  </div>
-                </div>
+              <div className="card-body d-sm-flex flex-column align-items-start justify-content-start text-secondary m-2">
+                <h4>
+                  <strong> Username:</strong>
+                  {yourProfile.username}
+                </h4>
 
-                <div className="col-md-2">
-                  <Link to={`/profile/${yourProfile._id}/edit`}>
-                    <button
-                      type="submit"
-                      onClick={this.handleToggle}
-                      style={{
-                        padding: "10px",
-                        margin: "10px",
-                        width: "100px",
-                        backgroundColor: "#4E6380",
-                        color: "white",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Edit
-                    </button>
-                  </Link>
+                <h4>
+                  <strong>Name: </strong>
+                  {yourProfile.name}
+                </h4>
 
+                <h4>
+                  <strong>Last name:</strong> {yourProfile.lastName}
+                </h4>
+
+                <h4>
+                  <strong>City:</strong> {yourProfile.city}
+                </h4>
+
+                <h4>
+                  <strong>Country:</strong> {yourProfile.country}
+                </h4>
+
+                <h4>
+                  <strong>Type Of Diet: </strong>
+                  {yourProfile.typeOfDiet}
+                </h4>
+              </div>
+
+              <div className="d-sm-flex flex-column justify-content-center align-items-start">
+                <Link to={`/profile/${yourProfile._id}/edit`}>
                   <button
-                    onClick={this.handleDelete}
-                    className="btn btn-secondary:hover"
+                    type="submit"
+                    onClick={this.handleToggle}
                     style={{
                       padding: "10px",
                       margin: "10px",
@@ -104,73 +99,26 @@ class UserProfile extends Component {
                       fontWeight: "600",
                     }}
                   >
-                    Delete
+                    Edit
                   </button>
-                </div>
+                </Link>
 
-                <div className="col-md-8">
-                  <div
-                    style={{ margin: "10px" }}
-                    className="tab-content profile-tab"
-                    id="myTabContent"
-                  >
-                    <div
-                      className="tab-pane fade show active"
-                      id="home"
-                      role="tabpanel"
-                      aria-labelledby="home-tab"
-                    >
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>Username: </label>
-                        </div>
-                        <div className="col-md-6">
-                          <p>{yourProfile.username}</p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>Name: </label>
-                        </div>
-                        <div className="col-md-6">
-                          <p>{yourProfile.name}</p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>Last Name: </label>
-                        </div>
-                        <div className="col-md-6">
-                          <p>{yourProfile.lastName}</p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>City: </label>
-                        </div>
-                        <div className="col-md-6">
-                          <p>{yourProfile.city}</p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>Country: </label>
-                        </div>
-                        <div className="col-md-6">
-                          <p>{yourProfile.country}</p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>Type of Diet: </label>
-                          <p>{yourProfile.typeOfDiet}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <button
+                  onClick={this.handleDelete}
+                  className="btn btn-secondary:hover"
+                  style={{
+                    padding: "10px",
+                    margin: "10px",
+                    width: "100px",
+                    backgroundColor: "#4E6380",
+                    color: "white",
+                    fontWeight: "600",
+                  }}
+                >
+                  Delete
+                </button>
               </div>
-            </form>
+            </div>
           </div>
         )}
       </div>

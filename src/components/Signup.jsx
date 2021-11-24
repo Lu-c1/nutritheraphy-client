@@ -1,23 +1,46 @@
 import React, { Component } from "react";
 import authService from "../services/auth-service";
-import { Link } from "react-router-dom";
+import { BounceLoader } from "react-spinners";
+import axios from "axios";
 
 class Signup extends Component {
   state = {
     username: "",
     password: "",
+    image: "",
     email: "",
     name: "",
     lastName: "",
     city: "",
     country: "",
     typeOfDiet: "",
+    imageIsLoading: false,
 
     showForm: true,
   };
 
   handleToggle = () => {
     this.setState({ showForm: false });
+  };
+
+  handleImageUpload = (event) => {
+    console.log(event.target.files[0]);
+
+    this.setState({ imageIsLoading: true });
+    const uploadData = new FormData();
+    uploadData.append("image", event.target.files[0]);
+
+    console.log(uploadData);
+    axios
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/upload`,
+        { uploadData },
+        { withCredentials: true }
+      )
+      .then((result) =>
+        this.setState({ image: result.data.imagePath, imageIsLoading: false })
+      )
+      .catch((err) => this.props.history.push("/500"));
   };
 
   handleChange = (event) => {
@@ -30,6 +53,7 @@ class Signup extends Component {
     const {
       username,
       password,
+      image,
       email,
       name,
       lastName,
@@ -41,6 +65,7 @@ class Signup extends Component {
       .signup(
         username,
         password,
+        image,
         email,
         name,
         lastName,
@@ -63,16 +88,19 @@ class Signup extends Component {
         this.props.history.push(`/profile/${result.data._id}`);
       });
   };
+
   render() {
     const {
       username,
       password,
+      image,
       mail,
       name,
       lastName,
       city,
       country,
       typeOfDiet,
+      imageIsLoading,
     } = this.state;
     return (
       <div
@@ -92,6 +120,16 @@ class Signup extends Component {
           }}
           onSubmit={this.handleSubmit}
         >
+          <BounceLoader color={"#D7BDE2"} loading={imageIsLoading} size={150} />
+          <input
+            onChange={this.handleImageUpload}
+            style={{ margin: "60px" }}
+            type="file"
+            name="image"
+            value={image}
+          />
+          <br />
+
           <div className="row">
             <div className="col">
               <label htmlFor="username">Username</label>

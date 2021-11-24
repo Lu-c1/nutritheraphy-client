@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import authService from "./services/auth-service";
 import Login from "./components/Login";
-import Private from "./components/Private";
+import ServerError from "./components/ServerError";
 import EditProfile from "./components/EditProfile";
 import UserProfile from "./components/UserProfile";
 import Recipe from "./components/Recipe";
@@ -13,6 +13,8 @@ import RecipesList from "./components/RecipesList";
 import RecipeDetails from "./components/RecipeDetails";
 import RecipeEdit from "./components/RecipeEdit";
 import Community from "./components/Community";
+import HomePage from "./components/HomePage";
+import SearchBar from "./components/SearchBar";
 
 /* import HomePage from "./pages/HomePage";
 import * as PATHS from "./utils/paths"; */
@@ -22,6 +24,9 @@ class App extends Component {
     isLoggedIn: null,
     user: null,
   };
+  // create method that sets null isLoggedIn and user, pass the method to UserProfile
+  // or
+  // use the setUser function inside UserProfile but pass two null arguments
   setUser = (user, loggedInStatus) => {
     this.setState({
       user,
@@ -54,7 +59,9 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar isLoggedIn={isLoggedIn} user={user} setUser={this.setUser} />
+
         <Switch>
+          <Route path="/" exact render={(props) => <HomePage {...props} />} />
           <Route
             path="/signup"
             exact
@@ -66,9 +73,9 @@ class App extends Component {
             render={(props) => <Login {...props} setUser={this.setUser} />}
           />
           <Route
-            path="/private"
+            path="/profile/list"
             exact
-            render={(props) => <Private {...props} />}
+            render={(props) => <Community {...props} />}
           />
 
           <Route
@@ -84,21 +91,9 @@ class App extends Component {
           />
 
           <Route
-            path="/profile/list"
-            exact
-            render={(props) => <Community {...props} />}
-          />
-
-          <Route
             path="/recipes/list"
             exact
             render={(props) => <RecipesList {...props} />}
-          />
-
-          <Route
-            path="/recipes/:id/details"
-            exact
-            render={(props) => <RecipeDetails {...props} />}
           />
 
           <Route
@@ -107,16 +102,18 @@ class App extends Component {
             render={(props) => <Recipe {...props} />}
           />
           <Route
+            path="/recipes/:id"
+            exact
+            render={(props) => <RecipeDetails {...props} />}
+          />
+          <Route
             path="/recipes/:id/edit"
             exact
             render={(props) => <RecipeEdit {...props} />}
           />
-          {/*   <Route
-            path="/500"
-            component={ServerError} />
-          />
+          <Route path="/500" component={ServerError} />
 
-          <Route
+          {/*    <Route
             component={NotFound} />
           />       */}
         </Switch>

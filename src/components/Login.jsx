@@ -23,8 +23,6 @@ class Login extends Component {
       this.setState({ username: "", password: "" });
       this.props.setUser(result.data, true);
       this.props.history.push(`/profile/${result.data._id}`);
-
-      // send the user to a private page
     });
   };
   render() {

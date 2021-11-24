@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Navigate } from "react-router";
 import { BounceLoader } from "react-spinners";
 
 class Private extends Component {
@@ -27,9 +26,6 @@ class Private extends Component {
 
   render() {
     const { privateData, isLoading } = this.state;
-    {
-      !this.props.loggedin && <Navigate to="/login" />;
-    }
 
     return (
       <div>
